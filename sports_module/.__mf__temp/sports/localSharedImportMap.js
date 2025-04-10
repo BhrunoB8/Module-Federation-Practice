@@ -4,7 +4,7 @@
     const importMap = {
       
         "vue": async () => {
-          let pkg = await import("__mf__virtual/header__prebuild__vue__prebuild__.js")
+          let pkg = await import("__mf__virtual/sports__prebuild__vue__prebuild__.js")
           return pkg
         }
       
@@ -16,7 +16,7 @@
             version: "3.5.13",
             scope: ["default"],
             loaded: false,
-            from: "header",
+            from: "sports",
             async get () {
               usedShared["vue"].loaded = true
               const {"vue": pkgDynamicImport} = importMap 

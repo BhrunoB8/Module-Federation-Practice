@@ -1,21 +1,22 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { federation } from '@module-federation/vite';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { federation } from '@module-federation/vite'
 
+// https://vite.dev/config/
 export default defineConfig({
   server: {
-    origin: 'http://localhost:5173',
-    port: 5173,
+    origin: 'http://localhost:5174',
+    port: 5174,
   },
-  base: 'http://localhost:5173',
+  base: 'http://localhost:5174',
   plugins: [
     vue(),
     federation({
-      name: 'header',
+      name: 'sports',
       manifest: true,
       exposes: {
-        './Header': './src/main.js',
-        './Router': './src/routes/index.ts'
+        './Sports': './src/main.js',
+        './Router': './src/router/index.ts'
       },
       filename: 'remoteEntry.js',
       shareScope: 'default',
@@ -32,4 +33,4 @@ export default defineConfig({
   build: {
     target: 'chrome89',
   },
-});
+})

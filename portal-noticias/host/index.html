@@ -6,8 +6,38 @@
   <title>News Portal</title>
 </head>
 <body>
-<div id="header"></div>
+<header class="header">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <div id="header"></div>
+            <div id="sports"></div>
+        </ul>
+    </nav>
+    <input type="text" placeholder="Search news..." />
+</header>
+<!--<div id="sports"></div>-->
 <div id="trending"></div>
 <script type="module" src="./src/main.js"></script>
 </body>
 </html>
+
+<style scoped>
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        background: bisque;
+        color: white;
+    }
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    input {
+        padding: 0.5em;
+    }
+</style>

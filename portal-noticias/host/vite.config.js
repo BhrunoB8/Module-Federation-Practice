@@ -14,7 +14,12 @@ export default defineConfig({
                 header: {
                     type: 'module',
                     name: 'header',
-                    entry: 'http://localhost:5175/remoteEntry.js',
+                    entry: 'http://localhost:5173/remoteEntry.js',
+                },
+                sports: {
+                    type: 'module',
+                    name: 'sports',
+                    entry: 'http://localhost:5174/remoteEntry.js',
                 },
             },
             shared: {
