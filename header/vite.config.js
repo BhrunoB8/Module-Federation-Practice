@@ -14,8 +14,7 @@ export default defineConfig({
       name: 'header',
       manifest: true,
       exposes: {
-        './Header': './src/main.js',
-        './Router': './src/routes/index.ts'
+        './Header': './src/App.vue'
       },
       filename: 'remoteEntry.js',
       shareScope: 'default',

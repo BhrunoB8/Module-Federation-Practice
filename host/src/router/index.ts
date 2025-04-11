@@ -1,20 +1,32 @@
 import { createRouter as createVueRouter, createWebHistory} from 'vue-router';
-import Technology from "remotes/Technology";
-import Sports from "remotes/Sports";
+import HomeView from "../views/HomeView.vue";
 
 export const createRouter = () =>
     createVueRouter({
         history: createWebHistory(),
         routes: [
             {
+                path: '/',
+                component: HomeView,
+            },
+            {
                 path: '/technology',
-                name: 'Technology',
-                component: Technology,
+                component: () => import("header/Header"),
+            },
+            {
+                path: '/sports/:id/:nome',
+                component: () => import("sport/SportView"),
             },
             {
                 path: '/sports',
                 name: 'Sports',
-                component: Sports,
+                component: () => import("sport/Sport"),
+                children: [
+                    {
+                        path: "/create",
+                        component: () => import("sport/Sport"),
+                    },
+                ],
             }
         ],
     });

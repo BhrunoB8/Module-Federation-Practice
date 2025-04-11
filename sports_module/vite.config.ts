@@ -12,11 +12,11 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-      name: 'sports',
+      name: 'sport',
       manifest: true,
       exposes: {
-        './Sports': './src/main.js',
-        './Router': './src/router/index.ts'
+        './Sport': './src/App.vue',
+        './SportView': './src/views/SportView.vue'
       },
       filename: 'remoteEntry.js',
       shareScope: 'default',
