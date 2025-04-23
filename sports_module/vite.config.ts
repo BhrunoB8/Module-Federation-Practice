@@ -16,7 +16,8 @@ export default defineConfig({
       manifest: true,
       exposes: {
         './Sport': './src/App.vue',
-        './SportView': './src/views/SportView.vue'
+        './SportView': './src/views/SportView.vue',
+        './Routes': './src/router/index.ts'
       },
       filename: 'remoteEntry.js',
       shareScope: 'default',

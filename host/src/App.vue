@@ -9,9 +9,8 @@ const router = useRouter();
 listenRemoteRoutes(router);
 </script>
 
-
 <template>
-  <div >
+  <div>
     <header>
       <div class="wrapper">
         <Navbar />

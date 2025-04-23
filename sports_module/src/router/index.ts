@@ -1,23 +1,25 @@
-// import { createRouter as createVueRouter, createWebHistory} from 'vue-router';
-// import SportCreate from "../views/SportCreate.vue";
-// import Home from "@/views/Home.vue";
+import SportCreate from "../views/SportCreate.vue";
+import SportList from "../views/SportList.vue";
+import {createRouter as createVueRouter, createWebHistory} from 'vue-router';
 
-export const navigateTo = (route: Object) => {
-    const evt = new CustomEvent("remoteNavigateTo", { detail: route });
-    document.dispatchEvent(evt);
-};
-//
+export const routes = [
+    {
+        path: '/sports/create',
+        name: 'SportCreate',
+        component: SportCreate,
+    },
+    {
+        path: '/sports/list',
+        name: 'SportList',
+        component: SportList,
+    },
+]
+
 //
 // export const createRouter = () =>
 //     createVueRouter({
 //         history: createWebHistory(),
-//         routes: [
-//             {
-//                 path: '/sports/create',
-//                 name: 'SportCreate',
-//                 component: SportCreate,
-//             },
-//         ],
+//         routes
 //     });
 //
 // const router = createRouter();
