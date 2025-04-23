@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "sportsModule",
+    "clientFramework": "vue",
+    "clientTestFrameworks": [],
+    "clientTheme": "none",
+    "creationTimestamp": 1745367041375,
+    "enableTranslation": false,
+    "entities": ["Sport"],
+    "jhipsterVersion": "8.10.0",
+    "lastLiquibaseTimestamp": 1745375882000,
+    "microfrontend": null,
+    "microfrontends": [],
+    "monorepository": true,
+    "nativeLanguage": "en",
+    "skipCommitHook": true,
+    "skipServer": true,
+    "testFrameworks": [],
+    "withAdminUi": true
+  }
+}
