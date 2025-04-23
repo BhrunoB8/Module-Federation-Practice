@@ -1,6 +1,8 @@
 import { createRouter as createVueRouter, createWebHistory} from 'vue-router';
 import HomeView from "../views/HomeView.vue";
 
+const { routes } = await import("sport/Routes");
+
 export const createRouter = () =>
     createVueRouter({
         history: createWebHistory(),
@@ -21,13 +23,8 @@ export const createRouter = () =>
                 path: '/sports',
                 name: 'Sports',
                 component: () => import("sport/Sport"),
-                children: [
-                    {
-                        path: "/create",
-                        component: () => import("sport/Sport"),
-                    },
-                ],
-            }
+            },
+            ...routes
         ],
     });
 
