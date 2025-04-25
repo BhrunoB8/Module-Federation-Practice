@@ -11,6 +11,7 @@ const onRequestSuccess = config => {
   }
   config.timeout = TIMEOUT;
   config.url = `${SERVER_API_URL}${config.url}`;
+  console.log("Passou axios do SportModule ")
   return config;
 };
 const setupAxiosInterceptors = (onUnauthenticated, onServerError) => {

@@ -5,6 +5,8 @@ const Error = () => import('@/core/error/error.vue');
 import account from '@/router/account';
 import admin from '@/router/admin';
 import pages from '@/router/pages';
+const { routes } = await import("sport/Sport");
+// const sportCreate = await import("sport/SportCreate");
 
 // import entities from '@/router/entities';
 export const createRouter = () =>
@@ -17,6 +19,11 @@ export const createRouter = () =>
         name: 'Home',
         component: Home,
       },
+      // {
+      //   path: '/teste',
+      //   name: 'teste',
+      //   component: sportCreate,
+      // },
       {
         path: '/forbidden',
         name: 'Forbidden',
@@ -31,18 +38,19 @@ export const createRouter = () =>
       },
       ...account,
       ...admin,
+      ...routes,
       ...pages,
     ],
   });
 
 const router = createRouter();
 
-async function loadRemoteRoutes() {
-  const { routes } = await import("sport/Sport");
-  routes.forEach((it: any) => { router.addRoute(it) })
-}
-
-loadRemoteRoutes()
+// async function loadRemoteRoutes() {
+//   const { routes } = await import("sport/Sport");
+//   routes.forEach((it: any) => { router.addRoute(it) })
+// }
+//
+// loadRemoteRoutes()
 
 router.beforeResolve(async (to, from, next) => {
   if (!to.matched.length) {

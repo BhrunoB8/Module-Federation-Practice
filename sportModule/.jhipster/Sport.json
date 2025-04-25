@@ -1,0 +1,25 @@
+{
+  "annotations": {
+    "changelogDate": "20250423023802"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "author",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Sport",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -13,7 +13,7 @@
     "devDatabaseType": "h2Disk",
     "enableHibernateCache": true,
     "enableTranslation": false,
-    "entities": [],
+    "entities": ["Sport"],
     "feignClient": null,
     "jhipsterVersion": "8.10.0",
     "jwtSecretKey": "ZTNiYjU0MTRlZmU4Mzg5NDcxNTYxNjczY2YxNzAyZWM5YmQ3YmUyODhmYWJlNmU5YzZiOTBkOGM1YjNjOWViNmI0MzdhODE0Y2M4NDRmN2UwNTcxZTkxMjYzY2IzODE5ZDY0MDc4MTRiYTkyNzRhYTMzOGJjOWI3Yzg4OGFhMjI=",

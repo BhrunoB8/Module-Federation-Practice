@@ -87,7 +87,8 @@
     "dayjs": "1.11.13",
     "pinia": "3.0.1",
     "vue": "3.5.13",
-    "vue-router": "4.5.0"
+    "vue-router": "4.5.0",
+    "@module-federation/vite": "^1.2.6"
   },
   "devDependencies": {
     "@eslint/js": "9.23.0",
@@ -125,7 +126,8 @@
     "vite-plugin-static-copy": "2.3.0",
     "vitest": "3.0.9",
     "vitest-sonar-reporter": "2.0.0",
-    "wait-on": "8.0.3"
+    "wait-on": "8.0.3",
+    "vite-plugin-federation": "^0.0.1"
   },
   "engines": {
     "node": ">=22.14.0"

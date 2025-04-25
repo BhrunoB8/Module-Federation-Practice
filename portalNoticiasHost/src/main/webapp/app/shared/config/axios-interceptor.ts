@@ -10,7 +10,11 @@ const onRequestSuccess = config => {
     config.headers.Authorization = `Bearer ${token}`;
   }
   config.timeout = TIMEOUT;
-  config.url = `${SERVER_API_URL}${config.url}`;
+  console.log(config.url)
+  if(!config.url.startsWith("http")) {
+    config.url = `${SERVER_API_URL}${config.url}`;
+  }
+  console.log("Passou axios do Host ")
   return config;
 };
 const setupAxiosInterceptors = (onUnauthenticated, onServerError) => {
