@@ -4,22 +4,18 @@ const Home = () => import('@/core/home/home.vue');
 const Error = () => import('@/core/error/error.vue');
 import account from '@/router/account';
 import admin from '@/router/admin';
-import entities from '@/router/entities';
 import pages from '@/router/pages';
 
+// import entities from '@/router/entities';
 export const createRouter = () =>
   createVueRouter({
+
     history: createWebHistory(),
     routes: [
       {
         path: '/',
         name: 'Home',
         component: Home,
-      },
-      {
-        path: '/sports',
-        name: 'Sports',
-        component: () => import("sport/Sport"),
       },
       {
         path: '/forbidden',
@@ -35,12 +31,18 @@ export const createRouter = () =>
       },
       ...account,
       ...admin,
-      entities,
       ...pages,
     ],
   });
 
 const router = createRouter();
+
+async function loadRemoteRoutes() {
+  const { routes } = await import("sport/Sport");
+  routes.forEach((it: any) => { router.addRoute(it) })
+}
+
+loadRemoteRoutes()
 
 router.beforeResolve(async (to, from, next) => {
   if (!to.matched.length) {

@@ -15,7 +15,7 @@ let config = defineConfig({
       name: 'sport',
       manifest: true,
       exposes: {
-        './Sport': './src/main/webapp/app/entities/sport/sport-update.vue',
+        './Sport': './src/main/webapp/app/router/entities.ts',
       },
       filename: 'remoteEntry.js',
       shareScope: 'default',
@@ -68,9 +68,8 @@ let config = defineConfig({
     APP_VERSION: `"${process.env.APP_VERSION ? process.env.APP_VERSION : 'DEV'}"`,
   },
   server: {
-    host: '0.0.0.0',
     port: 5174,
-    origin: 'http://192.168.0.109:5174',
+    origin: 'http://localhost:5174',
     proxy: Object.fromEntries(
       ['/api', '/management', '/v3/api-docs'].map(res => [
         res,
@@ -79,11 +78,11 @@ let config = defineConfig({
         },
       ]),
     ),
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
-  base: 'http://192.168.0.109:5174',
-  build: {
-    target: 'chrome89',
-  },
+  base: 'http://localhost:5174',
 });
 
 // jhipster-needle-add-vite-config - JHipster will add custom config

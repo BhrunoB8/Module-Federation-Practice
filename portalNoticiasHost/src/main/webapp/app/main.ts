@@ -1,6 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.common with an alias.
-import Vue, { computed, createApp, onMounted, provide, watch } from 'vue';
+import Vue, {computed, createApp, defineAsyncComponent, onMounted, provide, watch} from 'vue';
 import { createPinia, storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 
@@ -103,6 +103,13 @@ const app = createApp({
       await changeLanguage(lang);
     });
 
+    async function loadRemoteRoutes() {
+      const { routes } = await import("sport/Sport");
+      routes.forEach((it: any) => { router.push(it) })
+    }
+
+    loadRemoteRoutes()
+
     router.beforeResolve(async (to, from, next) => {
       // Make sure login modal is closed
       loginService.hideLogin();
@@ -156,7 +163,6 @@ const app = createApp({
 });
 
 initFortAwesome(app);
-
 app
   .component('jhi-item-count', JhiItemCountComponent)
   .component('jhi-sort-indicator', JhiSortIndicatorComponent)

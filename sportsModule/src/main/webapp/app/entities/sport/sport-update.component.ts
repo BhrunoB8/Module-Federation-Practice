@@ -33,9 +33,9 @@ export default defineComponent({
       }
     };
 
-    if (route.params?.sportId) {
-      retrieveSport(route.params.sportId);
-    }
+    // if (route.params?.sportId) {
+    //   retrieveSport(route.params.sportId);
+    // }
 
     const validations = useValidation();
     const validationRules = {

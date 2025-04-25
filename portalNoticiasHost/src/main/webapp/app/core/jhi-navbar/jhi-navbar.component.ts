@@ -1,4 +1,4 @@
-import { type Ref, computed, defineComponent, inject, ref } from 'vue';
+import {type Ref, computed, defineComponent, inject, ref, defineAsyncComponent} from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import type LoginService from '@/account/login.service';

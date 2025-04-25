@@ -4,7 +4,7 @@ const Home = () => import('@/core/home/home.vue');
 const Error = () => import('@/core/error/error.vue');
 import account from '@/router/account';
 import admin from '@/router/admin';
-import entities from '@/router/entities';
+import { routes } from '@/router/entities';
 import pages from '@/router/pages';
 
 export const createRouter = () =>
@@ -30,7 +30,7 @@ export const createRouter = () =>
       },
       ...account,
       ...admin,
-      entities,
+      ...routes,
       ...pages,
     ],
   });
