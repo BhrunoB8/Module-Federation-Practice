@@ -5,13 +5,13 @@ const Error = () => import('@/core/error/error.vue');
 import account from '@/router/account';
 import admin from '@/router/admin';
 import pages from '@/router/pages';
-const { routes } = await import("sport/Sport");
-// const sportCreate = await import("sport/SportCreate");
+import entities from "@/router/entities.ts";
+import * as bridge from '@module-federation/bridge-vue3';
 
-// import entities from '@/router/entities';
+const Remote2 = bridge.createRemoteComponent({ loader: () =>  import('sport/export-app'), rootAttrs: {class: 'root-element-class'} });
+
 export const createRouter = () =>
   createVueRouter({
-
     history: createWebHistory(),
     routes: [
       {
@@ -19,11 +19,7 @@ export const createRouter = () =>
         name: 'Home',
         component: Home,
       },
-      // {
-      //   path: '/teste',
-      //   name: 'teste',
-      //   component: sportCreate,
-      // },
+      { path: '/sport/:pathMatch(.*)*', component: Remote2 },
       {
         path: '/forbidden',
         name: 'Forbidden',
@@ -37,20 +33,13 @@ export const createRouter = () =>
         meta: { error404: true },
       },
       ...account,
+      entities,
       ...admin,
-      ...routes,
       ...pages,
     ],
   });
 
 const router = createRouter();
-
-// async function loadRemoteRoutes() {
-//   const { routes } = await import("sport/Sport");
-//   routes.forEach((it: any) => { router.addRoute(it) })
-// }
-//
-// loadRemoteRoutes()
 
 router.beforeResolve(async (to, from, next) => {
   if (!to.matched.length) {

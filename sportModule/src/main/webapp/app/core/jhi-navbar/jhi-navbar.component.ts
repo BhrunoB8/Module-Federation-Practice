@@ -62,6 +62,8 @@ export default defineComponent({
   },
   methods: {
     hasAnyAuthority(authorities: any): boolean {
+      console.log("service é", this.accountService)
+      console.log(authorities)
       this.accountService.hasAnyAuthorityAndCheckAuth(authorities).then(value => {
         if (this.hasAnyAuthorityValues[authorities] !== value) {
           this.hasAnyAuthorityValues = { ...this.hasAnyAuthorityValues, [authorities]: value };

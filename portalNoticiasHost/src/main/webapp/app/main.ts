@@ -103,13 +103,6 @@ const app = createApp({
       await changeLanguage(lang);
     });
 
-    async function loadRemoteRoutes() {
-      const { routes } = await import("sport/Sport");
-      routes.forEach((it: any) => { router.push(it) })
-    }
-
-    loadRemoteRoutes()
-
     router.beforeResolve(async (to, from, next) => {
       // Make sure login modal is closed
       loginService.hideLogin();

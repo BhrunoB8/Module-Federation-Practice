@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { type ISport } from '@/shared/model/sport.model';
 
-const baseApiUrl = 'http://localhost:8080/api/sports';
+const baseApiUrl = 'api/sports';
 
 export default class SportService {
   public find(id: number): Promise<ISport> {

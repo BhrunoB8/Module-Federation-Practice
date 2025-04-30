@@ -18,6 +18,7 @@ export default defineComponent({
     'jhi-footer': JhiFooter,
   },
   setup() {
+    console.log("teste")
     provide('alertService', useAlertService());
 
     return {};

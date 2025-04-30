@@ -1,11 +1,11 @@
-import { URL, fileURLToPath } from 'node:url';
-import { defineConfig, normalizePath } from 'vite';
+import {URL, fileURLToPath} from 'node:url';
+import {defineConfig, normalizePath} from 'vite';
 
 import vue from '@vitejs/plugin-vue';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
-import { federation } from '@module-federation/vite';
+import {viteStaticCopy} from 'vite-plugin-static-copy';
+import {federation} from '@module-federation/vite';
 
-const { getAbsoluteFSPath } = await import('swagger-ui-dist');
+const {getAbsoluteFSPath} = await import('swagger-ui-dist');
 const swaggerUiPath = getAbsoluteFSPath();
 
 // eslint-disable-next-line prefer-const
@@ -15,20 +15,13 @@ let config = defineConfig({
       name: 'sport',
       manifest: true,
       exposes: {
-        './Sport': './src/main/webapp/app/router/entities.ts',
         './SportCreate': './src/main/webapp/app/entities/sport/sport-update.vue',
+        './SportList': './src/main/webapp/app/entities/sport/sport.vue',
+        './export-app': './src/main/webapp/app/exportApp.ts',
       },
       filename: 'remoteEntry.js',
       shareScope: 'default',
-      shared: {
-        vue: {
-          singleton: true,
-        },
-        'vue-router': {
-          singleton: true,
-        },
-        axios: false,
-      },
+      shared:  ['vue', 'vue-router', 'pinia', 'axios']
     }),
     vue(),
     viteStaticCopy({

@@ -7,33 +7,6 @@ const SportDetails = () => import('@/entities/sport/sport-details.vue');
 
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
-export const routes = [
-  {
-    path: '/sport',
-    name: 'Sport',
-    component: Sport,
-    meta: { authorities: [Authority.USER] },
-  },
-  {
-    path: '/sport/new',
-    name: 'SportCreate',
-    component: SportUpdate,
-    meta: { authorities: [Authority.USER] },
-  },
-  {
-    path: '/sport/:sportId/edit',
-    name: 'SportEdit',
-    component: SportUpdate,
-    meta: { authorities: [Authority.USER] },
-  },
-  {
-    path: '/sport/:sportId/view',
-    name: 'SportView',
-    component: SportDetails,
-    meta: { authorities: [Authority.USER] },
-  },
-];
-
 export default {
   path: '/',
   component: Entities,

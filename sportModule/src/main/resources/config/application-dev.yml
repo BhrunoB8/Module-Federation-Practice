@@ -79,7 +79,7 @@ jhipster:
   # CORS is only enabled by default with the "dev" profile
   cors:
     # Allow Ionic for JHipster by default (* no longer allowed in Spring Boot 2.4+)
-    allowed-origins: 'http://localhost:8100,https://localhost:8100,http://localhost:9000,https://localhost:9000'
+    allowed-origins: 'http://localhost:8081,http://localhost:8100,https://localhost:8100,http://localhost:9000,https://localhost:9000'
     # Enable CORS when running in GitHub Codespaces
     allowed-origin-patterns: 'https://*.githubpreview.dev'
     allowed-methods: '*'
@@ -91,7 +91,8 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: ZTNiYjU0MTRlZmU4Mzg5NDcxNTYxNjczY2YxNzAyZWM5YmQ3YmUyODhmYWJlNmU5YzZiOTBkOGM1YjNjOWViNmI0MzdhODE0Y2M4NDRmN2UwNTcxZTkxMjYzY2IzODE5ZDY0MDc4MTRiYTkyNzRhYTMzOGJjOWI3Yzg4OGFhMjI=
+        base64-secret: MGU0MDdkM2JjMDgxNzc4Y2VkN2ZiMDNhNmIwYjkzZDBjNWZjMGE5YzMzNWQ3ZjUxMjQ1NDc5NGU2ZWJlNWFjMTk3MzY3MWQ2NTMwMzhkMGFjNTA1ZWRlYjY5OTczODFlZWU0MjFiODA2Y2NiZTBlYmY3OWJjZWIwMmZjNWVjZGQ=
+
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

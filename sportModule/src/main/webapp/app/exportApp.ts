@@ -17,6 +17,8 @@ import { useStore } from '@/store';
 import '../content/scss/global.scss';
 import '../content/scss/vendor.scss';
 import {createBridgeComponent} from "@module-federation/bridge-vue3";
+import Entities from "@/entities/entities.vue";
+import EntitiesMenu from './entities/entities-menu.vue';
 
 const pinia = createPinia();
 
@@ -119,11 +121,21 @@ const app = createApp({
   },
 });
 
+//
+// app
+//   .component('jhi-item-count', JhiItemCountComponent)
+//   .component('jhi-sort-indicator', JhiSortIndicatorComponent)
+//   .use(pinia)
+//   .use(router)
+//   .mount('#app');
+
+export default createBridgeComponent({
+  rootComponent: Entities,
+  appOptions: ({app}) => {
+    const pinia = createPinia();
 initFortAwesome(app);
 
-app
-  .component('jhi-item-count', JhiItemCountComponent)
-  .component('jhi-sort-indicator', JhiSortIndicatorComponent)
-  .use(pinia)
-  .use(router)
-  .mount('#app');
+    app.use(pinia);
+    return { router };
+  },
+});

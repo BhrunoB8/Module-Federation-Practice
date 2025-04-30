@@ -10,7 +10,8 @@ const onRequestSuccess = config => {
     config.headers.Authorization = `Bearer ${token}`;
   }
   config.timeout = TIMEOUT;
-  config.url = `${SERVER_API_URL}${config.url}`;
+
+  config.url = `http://localhost:8080/${config.url}`;
   console.log("Passou axios do SportModule ")
   return config;
 };

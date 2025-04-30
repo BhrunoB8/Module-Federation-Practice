@@ -11,9 +11,7 @@ const onRequestSuccess = config => {
   }
   config.timeout = TIMEOUT;
   console.log(config.url)
-  if(!config.url.startsWith("http")) {
-    config.url = `${SERVER_API_URL}${config.url}`;
-  }
+    config.url = `http://localhost:9000/${config.url}`;
   console.log("Passou axios do Host ")
   return config;
 };

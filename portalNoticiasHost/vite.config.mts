@@ -13,17 +13,7 @@ export default defineConfig(async () => {
       federation({
         name: 'portalNoticiasModule',
         remotes: {
-          sport: {
-            type: 'module',
-            name: 'sport',
-            entry: 'http://localhost:5174/remoteEntry.js',
-          },
-        },
-        shared: {
-          vue: {
-            singleton: true,
-          },
-          axios: false,
+          sport: 'sport@http://localhost:5174/mf-manifest.json',
         },
       }),
       vue(),
